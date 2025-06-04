@@ -1,4 +1,4 @@
-import { Card, CardContent } from "../componets/ui/card";
+import { Card, CardContent } from "./ui/card";
 import { motion } from "framer-motion";
 import ChicaAlistas from "../assets/images/mockups/ChicaAlitas.png";
 import ChicaBebidas from "../assets/images/mockups/ChicaTragos.png";

@@ -1,4 +1,4 @@
-import { number } from "framer-motion";
+
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";

@@ -8,16 +8,16 @@ import {
 } from "react-router";
 
 
-import { useNavigation } from "react-router";
-import { CartProvider } from "../src/context/CartContext";
+
 
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
-import { CartDrawerProvider } from "../src/componets/CartDrawerContext";
-import Header from "src/componets/nav/header";
-import GlobalSpinner from "src/componets/GlobalSpinner";
-import SliderOver from "src/componets/nav/sliderOver";
-import PrincipalNav from "src/componets/nav/principalNav";
+import PrincipalNav from "./src/componets/nav/principalNav";
+import Header from "./src/componets/nav/header";
+import { CartDrawerProvider } from "./src/componets/CartDrawerContext";
+import { CartProvider } from "./src/context/CartContext";
+import SliderOver from "./src/componets/nav/sliderOver";
+
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -40,7 +40,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
-        <Links />
+        <Links/>
+
       </head>
       <body>
         {children}
@@ -53,21 +54,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
 
-    const navigation = useNavigation();
-  const isNavigating = Boolean(navigation.location);
+    
 
-  return (
-    <CartDrawerProvider>
-      <CartProvider>
-        <Header /> 
-        {isNavigating && <GlobalSpinner />}
-        <Outlet />
+  return (<>
+ <CartDrawerProvider>
+<CartProvider>
+  <Header/>
+     <Outlet />
         <SliderOver />
         <div className="flex justify-center">
           <PrincipalNav />
         </div>
-      </CartProvider>
-    </CartDrawerProvider>
+  
+</CartProvider>
+ </CartDrawerProvider>
+
+
+    </>
+  
+      
+      
   );
 }
 

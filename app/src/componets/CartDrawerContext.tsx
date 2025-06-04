@@ -23,6 +23,6 @@ export const CartDrawerProvider = ({ children }: { children: React.ReactNode }) 
 
 export const useCartDrawer = () => {
   const context = useContext(CartDrawerContext);
-  if (!context) throw new Error("useCartDrawer must be used within a CartDrawerProvider");
+  if (!context) throw new Error("useCartDrawer must be used within a CartDrawerProvider mulangoldo");
   return context;
 };
