@@ -13,14 +13,7 @@ function Header() {
   const [showReserveModal, setShowReserveModal] = useState(false);
   const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-  const handleReservar = (fecha: Date) => {
-    const fechaStr = fecha.toLocaleDateString();
-    const horaStr = fecha.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    const mensaje = `Hola, quiero reservar el local para el día ${fechaStr} a las ${horaStr}.`;
-    const url = `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, "_blank");
-    setShowReserveModal(false);
-  };
+
 
   return (
     <header className="sticky top-0 z-50 h-[8vh] bg-gray-900 text-neutral-900 flex items-center justify-between px-4 shadow-md">
@@ -88,13 +81,7 @@ function Header() {
         </li>
       </ul>
 
-      {/* Modal de reserva */}
-      {showReserveModal && (
-        <ReservaModal
-          onClose={() => setShowReserveModal(false)}
-          onReservar={handleReservar}
-        />
-      )}
+  
     </header>
   );
 }
